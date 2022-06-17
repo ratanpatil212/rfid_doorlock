@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "959980438203",
+    "firebase_url": "https://rfid-doorlock-3bf96-default-rtdb.firebaseio.com",
+    "project_id": "rfid-doorlock-3bf96",
+    "storage_bucket": "rfid-doorlock-3bf96.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:959980438203:android:d8903d8471ac6782889f9e",
+        "android_client_info": {
+          "package_name": "com.example.doorlock"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "959980438203-jo309cek0vrh5ee5us0vi278vsess19g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAiXEjk0znAfDX8AbcCKl0WpwZ8xO1CnxM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "959980438203-jo309cek0vrh5ee5us0vi278vsess19g.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "959980438203-ckmop10ki9den87145d9hrh97ukaj48h.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.doorlock"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
