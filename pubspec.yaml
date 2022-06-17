@@ -36,6 +36,9 @@ dependencies:
   cupertino_icons: ^1.0.2
   firebase_core: ^0.5.3
   firebase_database: ^4.4.0
+  cloud_firestore: ^0.14.4
+  toggle_switch: ^2.0.1
+  google_fonts: ^1.1.2
 
 dev_dependencies:
   flutter_test:
