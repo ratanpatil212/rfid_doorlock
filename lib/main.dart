@@ -5,6 +5,7 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 import 'dart:async';
 import 'package:google_fonts/google_fonts.dart';
+import 'login.dart';
 
 import 'firebase_options.dart';
 
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(),
+      home: Login(),
     );
   }
 }
