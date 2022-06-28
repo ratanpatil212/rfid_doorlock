@@ -1,4 +1,5 @@
 import 'package:doorlock/main.dart';
+import 'package:doorlock/screens/controlpanel.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -122,7 +123,7 @@ class _LoginState extends State<Login> {
                                 Navigator.pushReplacement(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => MyHomePage()));
+                                        builder: (context) => controlPanel()));
                               });
                             } catch (e) {
                               ScaffoldMessenger.of(context)
