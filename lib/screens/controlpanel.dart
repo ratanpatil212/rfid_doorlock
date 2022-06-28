@@ -17,6 +17,36 @@ class controlPanel extends StatefulWidget {
 }
 
 class _controlPanelState extends State<controlPanel> {
+  @override
+  Widget build(BuildContext context) {
+    List<int> integers = [1, 2, 3, 4, 5];
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          "                  RFID Based Doorlock",
+          style: GoogleFonts.rubik(fontWeight: FontWeight.w400),
+        ),
+      ),
+      body: Container(
+        margin: EdgeInsets.all(30),
+        child: ListView(
+          children: [
+            for (var i in integers)
+              ToggleButtonWidget(
+                inputInteger: i,
+              )
+          ],
+        ),
+      ), // This trailing comma makes auto-formatting nicer for build methods.
+    );
+  }
+}
+
+class ToggleButtonWidget extends StatelessWidget {
+  final int inputInteger;
+
+  ToggleButtonWidget({required this.inputInteger});
+
   var ref = FirebaseDatabase.instance.reference();
   CollectionReference u = FirebaseFirestore.instance.collection('tags');
 
@@ -34,215 +64,44 @@ class _controlPanelState extends State<controlPanel> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "                  RFID Based Doorlock",
-          style: GoogleFonts.rubik(fontWeight: FontWeight.w400),
+    return Row(
+      children: [
+        Text(
+          "Card Level $inputInteger",
+          style: GoogleFonts.poppins(
+            fontSize: 20,
+            fontWeight: FontWeight.w500,
+          ),
         ),
-      ),
-      body: Container(
-        margin: EdgeInsets.all(30),
-        child: ListView(
-          children: [
-            Row(
-              children: [
-                Text(
-                  "Card Level 1",
-                  style: GoogleFonts.poppins(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-                const SizedBox(
-                  width: 10,
-                ),
-                Container(
-                  margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
-                  child: ToggleSwitch(
-                    minWidth: MediaQuery.of(context).size.width / 3.92,
-                    cornerRadius: 20.0,
-                    activeBgColors: [
-                      [Colors.red[800]!],
-                      [Colors.green[800]!]
-                    ],
-                    activeFgColor: Colors.white,
-                    inactiveBgColor: Colors.grey,
-                    inactiveFgColor: Colors.white,
-                    initialLabelIndex: 1,
-                    totalSwitches: 2,
-                    labels: ['Deny', 'Allow'],
-                    radiusStyle: true,
-                    onToggle: (index) {
-                      if (index == 1) {
-                        update_to_allow(1);
-                      } else {
-                        update_to_deny(1);
-                      }
-                    },
-                  ),
-                ),
-              ],
-            ),
-            Row(
-              children: [
-                Text(
-                  "Card Level 2",
-                  style: GoogleFonts.poppins(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-                const SizedBox(
-                  width: 10,
-                ),
-                Container(
-                  margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
-                  child: ToggleSwitch(
-                    minWidth: MediaQuery.of(context).size.width / 3.92,
-                    cornerRadius: 20.0,
-                    activeBgColors: [
-                      [Colors.red[800]!],
-                      [Colors.green[800]!]
-                    ],
-                    activeFgColor: Colors.white,
-                    inactiveBgColor: Colors.grey,
-                    inactiveFgColor: Colors.white,
-                    initialLabelIndex: 1,
-                    totalSwitches: 2,
-                    labels: ['Deny', 'Allow'],
-                    radiusStyle: true,
-                    onToggle: (index) {
-                      if (index == 1) {
-                        update_to_allow(2);
-                      } else {
-                        update_to_deny(2);
-                      }
-                    },
-                  ),
-                ),
-              ],
-            ),
-            Row(
-              children: [
-                Text(
-                  "Card Level 3",
-                  style: GoogleFonts.poppins(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-                const SizedBox(
-                  width: 10,
-                ),
-                Container(
-                  margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
-                  child: ToggleSwitch(
-                    minWidth: MediaQuery.of(context).size.width / 3.92,
-                    cornerRadius: 20.0,
-                    activeBgColors: [
-                      [Colors.red[800]!],
-                      [Colors.green[800]!]
-                    ],
-                    activeFgColor: Colors.white,
-                    inactiveBgColor: Colors.grey,
-                    inactiveFgColor: Colors.white,
-                    initialLabelIndex: 1,
-                    totalSwitches: 2,
-                    labels: ['Deny', 'Allow'],
-                    radiusStyle: true,
-                    onToggle: (index) {
-                      if (index == 1) {
-                        update_to_allow(3);
-                      } else {
-                        update_to_deny(3);
-                      }
-                    },
-                  ),
-                ),
-              ],
-            ),
-            Row(
-              children: [
-                Text(
-                  "Card Level 4",
-                  style: GoogleFonts.poppins(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-                const SizedBox(
-                  width: 10,
-                ),
-                Container(
-                  margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
-                  child: ToggleSwitch(
-                    minWidth: MediaQuery.of(context).size.width / 3.92,
-                    cornerRadius: 20.0,
-                    activeBgColors: [
-                      [Colors.red[800]!],
-                      [Colors.green[800]!]
-                    ],
-                    activeFgColor: Colors.white,
-                    inactiveBgColor: Colors.grey,
-                    inactiveFgColor: Colors.white,
-                    initialLabelIndex: 1,
-                    totalSwitches: 2,
-                    labels: ['Deny', 'Allow'],
-                    radiusStyle: true,
-                    onToggle: (index) {
-                      if (index == 1) {
-                        update_to_allow(4);
-                      } else {
-                        update_to_deny(4);
-                      }
-                    },
-                  ),
-                ),
-              ],
-            ),
-            Row(
-              children: [
-                Text(
-                  "Card Level 5",
-                  style: GoogleFonts.poppins(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-                const SizedBox(
-                  width: 10,
-                ),
-                Container(
-                  margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
-                  child: ToggleSwitch(
-                    minWidth: MediaQuery.of(context).size.width / 3.92,
-                    cornerRadius: 20.0,
-                    activeBgColors: [
-                      [Colors.red[800]!],
-                      [Colors.green[800]!]
-                    ],
-                    activeFgColor: Colors.white,
-                    inactiveBgColor: Colors.grey,
-                    inactiveFgColor: Colors.white,
-                    initialLabelIndex: 1,
-                    totalSwitches: 2,
-                    labels: ['Deny', 'Allow'],
-                    radiusStyle: true,
-                    onToggle: (index) {
-                      if (index == 1) {
-                        update_to_allow(5);
-                      } else {
-                        update_to_deny(5);
-                      }
-                    },
-                  ),
-                ),
-              ],
-            ),
-          ],
+        const SizedBox(
+          width: 10,
         ),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+        Container(
+          margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
+          child: ToggleSwitch(
+            minWidth: MediaQuery.of(context).size.width / 3.92,
+            cornerRadius: 20.0,
+            activeBgColors: [
+              [Colors.red[800]!],
+              [Colors.green[800]!]
+            ],
+            activeFgColor: Colors.white,
+            inactiveBgColor: Colors.grey,
+            inactiveFgColor: Colors.white,
+            initialLabelIndex: 1,
+            totalSwitches: 2,
+            labels: ['Deny', 'Allow'],
+            radiusStyle: true,
+            onToggle: (index) {
+              if (index == 1) {
+                update_to_allow(inputInteger);
+              } else {
+                update_to_deny(inputInteger);
+              }
+            },
+          ),
+        ),
+      ],
     );
   }
 }
